@@ -1,0 +1,58 @@
+{% extends "core/base.html" %}
+{% block content %}
+  <div class="jumbotron">
+    <h1>NARCO WARS</h1>
+  </div>
+  <div class="container rounded">
+    <div class="row">
+      <div class="col">
+        <h3>Day {{ game.day }}</h3>
+        <table class="table table-striped">
+  	<thead class="thead-light">
+  	  <tr>
+  	    <th>Item</th><th>Price</th>
+  	  </tr>
+  	</thead>
+  	<tbody>
+  	  {% for i in pricelist.itemprice_set.all %}
+  	  <tr><td>{{ i.item.name }}</td><td>{{ i.price }}</td></tr>
+  	  {% endfor %}
+  	</tbody>
+        </table>
+      </div>
+      <div class="col">
+	<h3>Backpack</h3>
+        <table class="table table-striped">
+  	  <thead class="thead-light">
+  	    <tr>
+  	      <th>Item</th><th>Price</th>
+  	    </tr>
+  	  </thead>
+  	  <tbody>
+	    {% for i in backpack.itemquantity_set.all %}
+	    <tr><td>{{ i.item.name }}</td><td>{{ i.quantity }}</td></tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+      </div>
+      <div class="col">
+	<div class="container">
+	  <div class="row">
+	    <table class="table">
+	      <tr><td>Cash</td><td>{{ game.cash }}</td></tr>
+	      <tr><td>Debt</td><td>{{ game.debt }}</td></tr>
+	    </table>
+	  </div>
+	  <div class="row">
+	    <div class="col"></div>
+	    <div class="col">
+              <a href="{% url 'index' %}" class="btn btn-danger">Concede</a>
+	    </div>
+	    <div class="col"></div>
+	    <div class="col"></div>	    
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
