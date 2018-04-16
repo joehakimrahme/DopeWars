@@ -11,7 +11,9 @@ from core.models import PriceList
 
 
 def index(request):
-    return render(request, 'core/index.html', {'new_game_id': uuid.uuid1()})
+    g = Game.objects.all()[:10]
+    return render(request, 'core/index.html', {'new_game_id': uuid.uuid1(),
+                                               'game': g,})
 
 def display(request, game_id):
     g, created = Game.objects.get_or_create(game_uuid=game_id)

@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <title>NARCO WARS</title>
-  </head>
-  <body>
-    <h1>NARCO WARS</h1>
-    <a href="{% url 'display' new_game_id %}">Click here to start a new game</a>
-  </body>
-</html>
+{% extends "core/base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>NARCO WARS</h1>
+</div>
+<div class="container">
+  <ul class="list-group">
+    {% for g in game %}
+    <li class="list-group-item"><a href="{{ g.game_uuid }}">{{ g }}</a></li>
+    {% endfor %}
+  </ul>
+  <a class="btn btn-primary" href="{% url 'display' new_game_id %}">New game</a>
+</div>
+{% endblock %}
