@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    re_path(r'(?P<game_id>[a-f0-9-]+)', views.display, name='display'),
+    path('<uuid:game_id>/', views.display, name='display'),
 ]
