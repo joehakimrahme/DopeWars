@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+  {% load static %}
   <head>
     <title>DopeWars</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="{% static "favicon.ico" %}" />
   </head>
   <body>
-    {% load static %}
     <div class="jumbotron">
       <img src="{% static "logo.png" %}" alt="My image"/>
       <a href="/admin">Admin</a>
